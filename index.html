@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSS Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NSS Fact</h1>
+        <div id="fact-container">
+            <h2 id="fact-title"></h2>
+            <p id="fact-description"></p>
+        </div>
+        <button id="next-fact">Next Fact</button>
+    </div>
+    <script>
+        const nssFacts = [
+            {
+                "fact": "Establishment",
+                "description": "The National Service Scheme (NSS) was launched in India in 1969, aiming to develop the personality and character of students through community service."
+            },
+            {
+                "fact": "Objective",
+                "description": "The primary objective of NSS is to provide students with an opportunity to engage in social service and contribute to the welfare of the community."
+            },
+            {
+                "fact": "Target Group",
+                "description": "NSS is primarily targeted at students in colleges and universities, encouraging them to participate in various social and community development activities."
+            },
+            {
+                "fact": "Motto",
+                "description": "The motto of NSS is 'Not Me But You,' which emphasizes the importance of selfless service and the idea that serving others is a way to serve oneself."
+            },
+            {
+                "fact": "Activities",
+                "description": "NSS volunteers participate in a wide range of activities, including health camps, environmental awareness programs, education for underprivileged children, and disaster relief efforts."
+            },
+            {
+                "fact": "Duration",
+                "description": "NSS volunteers are typically required to complete a minimum of 240 hours of community service over a period of two years."
+            },
+            {
+                "fact": "Recognition",
+                "description": "Participation in NSS can lead to various recognitions, including certificates, awards, and even academic credits in some institutions."
+            },
+            {
+                "fact": "National Integration",
+                "description": "NSS promotes national integration and social harmony by bringing together students from diverse backgrounds and encouraging them to work towards common goals."
+            },
+            {
+                "fact": "Leadership Skills",
+                "description": "Through their involvement in NSS, students develop leadership skills, teamwork, and a sense of responsibility towards society."
+            },
+            {
+                "fact": "Government Support",
+                "description": "The NSS is supported by the Government of India, which provides funding and resources to facilitate various programs and initiatives under the scheme."
+            }
+        ];
+
+        let currentFactIndex = 0;
+
+        function displayFact() {
+            const factTitle = document.getElementById('fact-title');
+            const factDescription = document.getElementById('fact-description');
+            
+            factTitle.textContent = nssFacts[currentFactIndex].fact;
+            factDescription.textContent = nssFacts[currentFactIndex].description;
+        }
+
+        document.getElementById('next-fact').addEventListener('click', () => {
+            currentFactIndex = (currentFactIndex + 1) % nssFacts.length;
+            displayFact();
+        });
+
+        // Display the first fact on page load
+        displayFact();
+    </script>
+</body>
+</html>
